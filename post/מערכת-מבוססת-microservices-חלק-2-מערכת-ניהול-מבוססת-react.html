@@ -34,13 +34,13 @@
     class="code-iframe"
     src="https://yanivor.github.io/portfolio/post/code/64056cab961cb626538895a4.html"
     onload="this.style.height=(this.contentWindow.document.body.scrollHeight)+'px';">
-  </iframe>
+  </iframe-->
 </p><p><br></p><p>יש כמה דרכים לטפל בקבצי build - הקבצים הסטטיים, שבזמן כתיבת הדברים האלה, לרוב nginx ישרת. דרך אחת היא לבנות את האפליקציה - עם npm run build - מקומית על המחשב ולהעביר את הקבצים לענן באמצעות git. רק את ה-build ב-repo נפרד. אפשרות אחרת היא לבנות את האפליקציה במחשב בענן ולמפות את התיקיה לקונטיינר שמריץ nginx.</p><p><br></p><p>הדרך אותה למדתי ונראית לי כרגע הכי יעילה היא ליצור קונטיינר שאליו מעתיקים את האפליקציית ריאקט כולה ועושים build בקונטיינר הזה. בשלב הבא מעתיקים את ה-build מהקונטיינר הקודם לקונטיינר nginx.</p><p><br></p><p>docker-compose.yml</p><p>
   <iframe
     class="code-iframe"
     src="https://yanivor.github.io/portfolio/post/code/64056ce6961cb626538895a5.html"
     onload="this.style.height=(this.contentWindow.document.body.scrollHeight)+'px';">
-  </iframe>
+  </iframe-->
 </p><p><br></p><p>החלק הרלוונטי למערכת ניהול ריאקט הוא admin-system-react שעושה build ל-docker image ומריץ קונטיינר על-פי ההגדרות ב-Dockerfile שהוזכרו קודם לכן. מעבר לזה יש מיפוי של פורט 80 של הקונטיינר לפורט 8081 במכונה המארחת.</p><p><br></p><p>שימו לב, שבנוסף להגדרות שהופיעו בחלק הקודם:</p><p><a href="https://yanivor.github.io/portfolio/post/%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA-%D7%9E%D7%91%D7%95%D7%A1%D7%A1%D7%AA-microservices-%D7%90%D7%99%D7%9E%D7%95%D7%AA-%D7%9E%D7%A9%D7%AA%D7%9E%D7%A9%D7%99%D7%9D" rel="noopener noreferrer" target="_top">מערכת מבוססת microservices - חלק 1 - אימות משתמשים</a></p><p><br></p><p>יש הגדרות לשרתי API שיופיעו בחלק הבא:</p><p><a href="https://yanivor.github.io/portfolio/post/%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA-%D7%9E%D7%91%D7%95%D7%A1%D7%A1%D7%AA-microservices-%D7%97%D7%9C%D7%A7-3-%D7%A9%D7%A8%D7%AA%D7%99-api" rel="noopener noreferrer" target="_top">מערכת מבוססת microservices - חלק 3 - שרתי API</a></p><p><br></p><p><br></p>
         </div>
       </div>
