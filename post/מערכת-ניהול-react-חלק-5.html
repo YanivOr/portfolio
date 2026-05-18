@@ -34,37 +34,37 @@
     class="code-iframe"
     src="https://yanivor.github.io/portfolio/post/code/64048f59a39177497b8315a0.html"
     onload="this.style.height=(this.contentWindow.document.body.scrollHeight)+'px';">
-  </iframe-->
+  </iframe>
 </p><p><br></p><p>הרכיב הראשי הוא App ולאחר נקיונות ושיפוצים הוא נראה כך:</p><p>src/app/App.js</p><p>
   <iframe
     class="code-iframe"
     src="https://yanivor.github.io/portfolio/post/code/64048faba39177497b8315a1.html"
     onload="this.style.height=(this.contentWindow.document.body.scrollHeight)+'px';">
-  </iframe-->
+  </iframe>
 </p><p><br></p><p>הרכיב הבא הוא CustomRoute. אחראי על ניתוב הדפדפן לאחר כניסה למערכת או לאחר ריענון הדף על-פי תוצאות אימות המשתמש וההרשאות שלו. קודם לכן, כתבתי אותו בשימוש עם hooks והעברת פונקציות ומאפיינים לרכיבים. תיקנתי וכעת הוא מחובר ל-store.</p><p><br></p><p>src/app/CustomRoute.js</p><p>
   <iframe
     class="code-iframe"
     src="https://yanivor.github.io/portfolio/post/code/64049060a39177497b8315a2.html"
     onload="this.style.height=(this.contentWindow.document.body.scrollHeight)+'px';">
-  </iframe-->
+  </iframe>
 </p><p><br></p><p>האובייקט ב-state שאחראי על הניתובים נקרא router ויש לו מאפיין שנקרא routeState אשר יכול להיות באחד משלושת המצבים - כפי שהרחבתי על הנושא בחלק: <a href="https://yanivor.github.io/portfolio/post/%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA-%D7%A0%D7%99%D7%94%D7%95%D7%9C-%D7%9E%D7%91%D7%95%D7%A1%D7%A1%D7%AA-react-%D7%97%D7%9C%D7%A7-1" rel="noopener noreferrer" target="_top">מערכת ניהול - React - חלק 1</a>.</p><p><br></p><p>1. מצב INIT: המצב ההתחלתי או במקרה שה-JWT token לא תקין. במצב הזה הרכיב שירונדר יהיה ה-Loading.</p><p>2. מצב REDIRECT: במקרה שה-JWT token תקין ו-redirect הוא true. הרכיב שירונדר יהיה רכיב Redirect שיעשה העברה ל-root (/). אני עושה redirect כשה-token מופיע ב-URL ואני רוצה "לנקות" את שורת הכתובת בדפדפן.</p><p>3. מצב ROUTE: במקרה שה-JWT token תקין ואין העברה. הרכיב שירונדר יהיה רכיב Switch שיכיל Routes שונים לפי הדפים במערכת.</p><p><br></p><p>הפונקציה handleAuth - שנקראת בזמן טעינת הרכיב CustomRoute - היא action creator שנמצא בתיקיית האקשנים.</p><p><br></p><p>src/store/actions/router/index.js</p><p>
   <iframe
     class="code-iframe"
     src="https://yanivor.github.io/portfolio/post/code/640490fba39177497b8315a3.html"
     onload="this.style.height=(this.contentWindow.document.body.scrollHeight)+'px';">
-  </iframe-->
+  </iframe>
 </p><p><br></p><p>אז דבר ראשון יש קריאה ל-fetchToken שמנסה לאסוף את ה-JWT Token מה-localStorage ומה-URL. אם היה ב-localStorage, מחזירה ROUTE. אם היה ב-URL, שומרת ב-localStorage ומחזירה REDIRECT. אם JWT לא נמצא, מחזירה INIT.</p><p><br></p><p>אם fetchToken החזירה INIT, יש dispatch של verifyTokenFailure. אחרת, נקרא האקשן verifyTokenStarted. הן כרגע לא עושות הרבה חוץ מלהחזיר את ה-state.</p><p><br></p><p>בשלב הבא, אני שולח קריאת verify לשרת auth כשה-JWT נמצא ב-header. אם האימות נכשל, יש קריאה ל-verifyTokenFailure, כמו קודם לכן. אם האימות עבר בהצלחה, יש קריאה לאקשן verifyTokenSuccess עם תוצאת ה-fetchToken במשתנה routeState.</p><p><br></p><p>נעבור ל-reducers.</p><p>src/store/reducers/router/index.js</p><p>
   <iframe
     class="code-iframe"
     src="https://yanivor.github.io/portfolio/post/code/64049175a39177497b8315a4.html"
     onload="this.style.height=(this.contentWindow.document.body.scrollHeight)+'px';">
-  </iframe-->
+  </iframe>
 </p><p><br></p><p>src/store/reducers/router/main.js</p><p>
   <iframe
     class="code-iframe"
     src="https://yanivor.github.io/portfolio/post/code/640491c1a39177497b8315a5.html"
     onload="this.style.height=(this.contentWindow.document.body.scrollHeight)+'px';">
-  </iframe-->
+  </iframe>
 </p><p><br></p><p>ברגע שה-state שב-routeState משתנה, הדפדפן מנתב בהתאם. כל זה קורה ב-CustomRoute.</p><p><br></p><p>המשך בחלק הבא:</p><p><a href="https://yanivor.github.io/portfolio/post/%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA-%D7%A0%D7%99%D7%94%D7%95%D7%9C-react-%D7%97%D7%9C%D7%A7-6" rel="noopener noreferrer" target="_top">מערכת ניהול - React - חלק 6</a></p>
         </div>
       </div>
