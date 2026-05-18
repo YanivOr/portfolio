@@ -25,7 +25,7 @@ header h4 {
 
 .me {
   float: right;
-  background: url(../images/me-purim-rounded.png);
+  background: url('https://yanivor.github.io/images/me-purim-rounded.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -38,7 +38,7 @@ header h4 {
 
 .container::after {
   content: "";
-  background: url(../images/bg.png);
+  background: url('https://yanivor.github.io/images/bg.png');
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
