@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="null">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/media.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <title>מעבדת סייבר - 4</title>
+</head>
+<body dir="rtl">
+  <header>
+    <h1>מיליון פרויקטים</h1>
+    <h4>טכנולוגיה, מדע, אומנות וכל מה שביניהם ומסביבם</h4>
+  </header>
+  <div class="container">
+    <div class="main">
+      <div class="post">
+        <div class="header">
+          <div class="left">
+            <a href="../" class="back">לדף הראשי</a>
+          </div>
+          <div class="right">
+            <h1 class="title">מעבדת סייבר - 4</h1>
+            <div class="author-date">יניב אור - 10 במאי 2020</div>
+          </div>
+        </div>
+        <div class="content">
+          <h3>המטרה</h3><p>פתיחת reverse shell למכשיר אנדרואיד.</p><p><br></p><h3>התוקף</h3><p>לפטופ Asus ROG Strix - מריץ אובונטו 18.04.</p><p><br></p><h3>הקורבן</h3><p>סמארטפון OnePlus X שברשותי - מריץ Android 6.0.1.</p><p><br></p><h3>הכלים</h3><p>התוכנה metasploit בעזרת msfvenom ו-meterpreter. ראו גם: <a href="https://a-million-projects.com/post/post/metasploit" rel="noopener noreferrer" target="_blank">Metasploit</a>.</p><p><br></p><h3>הערות</h3><p>- המכשירים שייכים לי, כמובן, והניסוי נערך ברשת הביתית שלי.</p><p>- במהלך המעבדה אני מייצר אפליקציית אנדרואיד בעזרת הכלים שציינתי קודם לכן. את קובץ ה-apk אני מעביר למכשיר הקורבן ומתקין את האפליקציה. מצב אמיתי, יש צורך לגרום לקורבן להוריד את הקובץ ולהתקין אותוו בדרכים אחרות, כמובן.</p><p><br></p><p><u>שלב 1</u></p><p>הרצתי קונטיינר של metasploit בצורה הבאה:</p><p>
+  <iframe
+    class="code-iframe"
+    src="https://a-million-projects.com/post/code/6407bef4eace0288e56802fa.html"
+    onload="this.style.height=(this.contentWindow.document.body.scrollHeight)+'px';">
+  </iframe>
+</p><p>הפורט (4444) שפתחתי ומיפיתי ישמש אותי בהמשך לתקשורת בין מכשיר הקורבן לבין התוכנה.</p><p><br></p><p><u>שלב 2</u></p><p>יצרתי payload של קובץ apk בעזרת msfvenom:</p><p>
+  <iframe
+    class="code-iframe"
+    src="https://a-million-projects.com/post/code/6407bf1ceace0288e56802fb.html"
+    onload="this.style.height=(this.contentWindow.document.body.scrollHeight)+'px';">
+  </iframe>
+</p><p><br></p><p><img src="https://static.wixstatic.com/media/17f292_43ec91f4e2d2410f9fed93b6f9dd36e0~mv2.png"></p><p><br></p><p><u>שלב 3</u></p><p>העתקתי את קובץ ה-apk למכשיר הקורבן. לחצתי על קובץ ה-apk שירד ושיניתי את ההגדרות באנדרואיד להתקנת אפליקציות ממקורות לא מוכרים. עברתי מספר מסכים שהזהירו אותי מפני האפליקציה ולבסוף היא הותקנה. לאחר מכן הרצתי אותה.</p><p><br></p><p><img src="https://static.wixstatic.com/media/17f292_b82052d861d1444b8a4e6b7e3e163463~mv2.png"></p><p><br></p><p><img src="https://static.wixstatic.com/media/17f292_b4434364f04c4ad694e93a77e1fdbb20~mv2.png"></p><p><br></p><p><img src="https://static.wixstatic.com/media/17f292_04b6504fcbbd4e7abb5be55354e2e659~mv2.png"></p><p><br></p><p><img src="https://static.wixstatic.com/media/17f292_db15fe1eb5f74fc5902953e16b680ddc~mv2.png"></p><p><br></p><p><img src="https://static.wixstatic.com/media/17f292_9a29eef9b68d4e4dad681503c901c22c~mv2.png"></p><p><br></p><p><img src="https://static.wixstatic.com/media/17f292_cc07ec62a42c4489892abc3d00e05f19~mv2.png"></p><p><br></p><p><u>שלב 4</u></p><p>בחזרה ל-metasploit. אין צורך להיות באותו סשן שבו יצרנו את ה-apk, כמובן. הרצתי את הפקודות הבאות:</p><p>
+  <iframe
+    class="code-iframe"
+    src="https://a-million-projects.com/post/code/6407bf58eace0288e56802fc.html"
+    onload="this.style.height=(this.contentWindow.document.body.scrollHeight)+'px';">
+  </iframe>
+</p><p><br></p><p><img src="https://static.wixstatic.com/media/17f292_46e74a28657d4fa4845568fe7895461d~mv2.png"></p><p><br></p><p>נפתח handler ל-reverse TCP ומה שנשאר לעשות זה לחכות לקורבן שיריץ את האפליקציה.</p><p><br></p><p><u>שלב 5</u></p><p>ברגע שהקורבן מריץ את האפליקציה, נפתח חיבור למחשב התוקף ונפתח session ב-metasploit.</p><p>הקלדתי help ובדקתי אילו אפשרויות נפתחו בפניי לביצוע במכשיר הקורבן.</p><p><br></p><p><img src="https://static.wixstatic.com/media/17f292_235474513ca047328a96d15b765bac77~mv2.png"></p><p><br></p><p><img src="https://static.wixstatic.com/media/17f292_260e64cdf9494d2cb853eed982d572a8~mv2.png"></p><p><br></p><p><img src="https://static.wixstatic.com/media/17f292_f70ae090177e453a8a53d5567d24548b~mv2.png"></p><p><br></p><p><img src="https://static.wixstatic.com/media/17f292_5758b83678744a1d80cf9c9b4310dbbd~mv2.png"></p><p><br></p><p><u>שלב 6</u></p><p>בחרתי בפעולה של שימוש במצלמה לצילום תמונה בודדת.</p><p>הצגתי רשימה של המצלמות במכשיר הזמינות לשימוש:</p><p>
+  <iframe
+    class="code-iframe"
+    src="https://a-million-projects.com/post/code/6407bf92eace0288e56802fd.html"
+    onload="this.style.height=(this.contentWindow.document.body.scrollHeight)+'px';">
+  </iframe>
+</p><p>הצגתי את ה-help של webcam_snap שמשמש לצילום תמונה בודדת:</p><p>
+  <iframe
+    class="code-iframe"
+    src="https://a-million-projects.com/post/code/6407bfb4eace0288e56802fe.html"
+    onload="this.style.height=(this.contentWindow.document.body.scrollHeight)+'px';">
+  </iframe>
+</p><p>צילמתי תמונה מהמצלמה הקדמית לקובץ בתיקיית tmp - התיקיה אותה מיפיתי קודם לכן בהרצת הקונטיינר:</p><p>
+  <iframe
+    class="code-iframe"
+    src="https://a-million-projects.com/post/code/6407bfd0eace0288e56802ff.html"
+    onload="this.style.height=(this.contentWindow.document.body.scrollHeight)+'px';">
+  </iframe>
+</p><p><br></p><p><img src="https://static.wixstatic.com/media/17f292_e10af88ee68a47f18c71265fec959960~mv2.png"></p><p><br></p><p>חשוב לציין, מסך הטלפון היה כבוי, לא נעשה שימוש בפלאש של המצלמה ולמעשה לא היה שום סימן שנעשה שימוש במצלמה. למרות זאת, הצילום בוצע בהצלחה. איכות לא משהו. יש אפשרות לשפר את העניין.</p><p><br></p><p><img src="https://static.wixstatic.com/media/17f292_bad32b240beb4a37b75f4d9748008411~mv2.jpeg"></p><p>מעבדות נוספות</p><p><a href="https://a-million-projects.com/post/%D7%9E%D7%A2%D7%91%D7%93%D7%95%D7%AA-%D7%A1%D7%99%D7%99%D7%91%D7%A8" rel="noopener noreferrer" target="_blank">מעבדות סייבר</a></p><p><br></p><p><span style="color: rgb(94, 143, 134);">﻿</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer></footer>
+  <script src="../js/post.js"></script>
+</body>
+</html>
